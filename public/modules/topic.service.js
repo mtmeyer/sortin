@@ -1,36 +1,22 @@
 angular.module('sortinApp').service("TopicService", function($http) {
-  this.getPairs = function() {
-      return $http.get("/pairs").
+  this.getTopics = function() {
+      return $http.get("/topics").
           then(function(response) {
               return response;
           }, function(response) {
-              alert("Error finding pairs.");
+              alert("Error finding topics.");
           });
   }
-  this.createPair = function(pair) {
-      return $http.post("/pairs", pair).
-          then(function(response) {
-              return response;
-          }, function(response) {
-              alert("Error creating pair.");
-          });
-  }
-  this.addLike = function(pair) {
-    var url = "/pairs/" + pair._id;
-      return $http.put(url, pair).
-          then(function(response) {
-              return response;
-          }, function(response) {
-              console.log("Error adding like.");
-          });
-  }
-  this.getFonts = function() {
-    return $http.get("/fonts").
-        then(function(response) {
-            return response;
-        }, function(response) {
-            alert("Error finding fonts.");
-        });
-  }
+
+  this.getTopic = function(topicId) {
+        var url = "/topics/" + topicId;
+        console.log(topicId);
+        return $http.get(url).
+            then(function(response) {
+                return response;
+            }, function(response) {
+                alert("Error finding this topic.");
+            });
+    }
 
 });

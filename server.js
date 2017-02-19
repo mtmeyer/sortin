@@ -63,4 +63,15 @@ app.post("/topics", function(req, res) {
       res.status(201).json(doc.ops[0]);
     }
   });
+
+//Get specific topic
+app.get("/api/topics/:id", function(req, res) {
+  db.collection(TOPICS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get topic");
+    } else {
+      res.status(200).json(doc);
+    }
+  });
+});
 });
