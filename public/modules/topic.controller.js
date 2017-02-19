@@ -1,4 +1,4 @@
-angular.module('fontPairApp').controller("MainController", function($scope, PairService) {
+angular.module('sortinApp').controller("TopicController", function($scope, TopicService) {
 
   $scope.$on('onRepeatLast', function(scope, element, attrs){
     console.log('loaded');

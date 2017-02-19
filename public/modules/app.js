@@ -1,12 +1,12 @@
-angular.module('fontPairApp', ['ngRoute']).config(function($routeProvider) {
+angular.module('sortinApp', ['ngRoute']).config(function($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "main.html",
-            controller: "MainController"
+            templateUrl: "topic.html",
+            controller: "TopicController"
         })
-        .when("/new/pair", {
-            controller: "CreatePair",
-            templateUrl: "create-pair.html"
+        .when("/new/topic", {
+            controller: "CreateTopic",
+            templateUrl: "create-topic.html"
         })
         .otherwise({
             redirectTo: "/"

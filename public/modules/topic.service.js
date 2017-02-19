@@ -1,4 +1,4 @@
-angular.module('fontPairApp').service("PairService", function($http) {
+angular.module('sortinApp').service("TopicService", function($http) {
   this.getPairs = function() {
       return $http.get("/pairs").
           then(function(response) {

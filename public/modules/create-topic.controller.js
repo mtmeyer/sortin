@@ -1,4 +1,4 @@
-angular.module('fontPairApp').controller("CreatePair", function($scope, $location, PairService) {
+angular.module('sortinApp').controller("CreateTopic", function($scope, $location, TopicService) {
   $('#fontInputErrorMsg').hide();
   PairService.getFonts().then(function(response) {
     $scope.fonts = response.data;

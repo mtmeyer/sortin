@@ -1,0 +1,1 @@
+angular.module("sortinApp",["ngRoute"]).config(function(e){e.when("/",{templateUrl:"topic.html",controller:"TopicController"}).when("/new/topic",{controller:"CreateTopic",templateUrl:"create-topic.html"}).otherwise({redirectTo:"/"})}).directive("repeatDone",function(){return function(e,t,o){e.$last&&setTimeout(function(){e.$emit("onRepeatLast",t,o)},1)}});
