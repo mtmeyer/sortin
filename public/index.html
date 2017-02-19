@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fontPairApp">
+  <head>
+    <title>Font Pear</title>
+    <link rel="icon" type="image/png" href="/css/img/favicon.png?v=2" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Angular lib -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js"></script>
+    <!-- Own Stylesheet -->
+    <link rel="stylesheet" href="index.css">
+    <!-- Website fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:700' rel='stylesheet' type='text/css'>
+
+    <script src="/modules/app.js"></script>
+    <script src="/modules/pair.service.js"></script>
+    <script src="/modules/main.controller.js"></script>
+    <script src="/modules/create-pair.controller.js"></script>
+  </head>
+
+  <body>
+    <!-- Dynamically render templates -->
+    <div class="container" ng-view>
+    </div>
+  </body>
+</html>

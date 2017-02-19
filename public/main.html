@@ -1,0 +1,32 @@
+<div id="loadingOverlay" class="loadingTrue"><img src="css/img/ring.svg"></div>
+
+<!-- HEADER -->
+<div class="header">
+  <img src="/css/img/font_pear_logo.svg" class="siteLogo">
+  <span class="siteName">Font Pear</span>
+  <a class="headerBtn" href="#/new/pair">
+    <img src="/css/img/add_btn.svg" alt="Add new pair button" id="headerAddBtn" ng-mouseover="headerAddHover('in')" ng-mouseleave="headerAddHover('out')">
+  </a>
+</div>
+
+<div class="contentContainer" id="mainContentContainer">
+  <div class="filterDropdownContainer" id="dropdownContainer">
+    <h2>
+    <a class="filterSelected" id="recentFilterBtn" ng-click="filterChange('recent')">Recent</a>
+    <span class="filterDivider">//</span>
+    <a class="filterUnselected" id="likedFilterBtn" ng-click="filterChange('liked')">Most Liked</a></h2>
+  </div>
+
+  <div class="pairContainer">
+    <div class="fontPair" ng-if="documentsPresent" ng-repeat="pair in pairs" repeat-done>
+      <span class="pairBox boxShadow">
+        <span class="headingBanner">{{ pair.primFont }} &amp; {{ pair.secFont }}</span>
+        <h3>Here is some heading text</h3>
+        <p>Here is some example paragraph text to fill out the space with some words</p>
+      </span>
+      <a class="favBox boxShadow" ng-click="addLike(pair)" style="cursor:pointer;">
+        <p>{{ pair.likes }}</p>
+        <span class="favouriteBtn"></span>
+      </a>
+  </div>
+</div>

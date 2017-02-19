@@ -1,0 +1,29 @@
+<div class="header">
+  <img src="/css/img/font_pear_logo.svg" class="siteLogo" ng-click="back()" href="javascript:void(0)" style="cursor:pointer;">
+  <span class="siteName" ng-click="back()" href="javascript:void(0)" style="cursor:pointer;">Font Pear</span>
+  <a class="headerBtn" ng-click="savePair(pair)" href="javascript:void(0)">
+    <img src="/css/img/tick_btn.svg" alt="Save Button" id="headerSaveBtn" ng-mouseover="headerSaveHover('in')" ng-mouseleave="headerSaveHover('out')">
+  </a>
+</div>
+
+<div class="contentContainer">
+  <h2>Create New Pair</h2>
+  <div class="detailsContainer boxShadow">
+    <p class="errorMessage" id="fontInputErrorMsg">Please enter a valid Google Font</p>
+    <p id="primaryFontP">Primary Font</p>
+    <input id="primFontInput" type="text" placeholder="Add your primary font here..."ng-blur="validFont(pair.primFont, 'primFontInput')" ng-model="pair.primFont" required>
+    <p>Secondary Font</p>
+    <input id="secFontInput" type="text" placeholder="Add your secondary font here..."ng-blur="validFont(pair.secFont, 'secFontInput')" ng-model="pair.secFont" required>
+  </div>
+
+  <div class="newPreview boxShadow">
+    <span class="addPreviewBanner">Preview</span>
+    <h3>Here is some heading text</h3>
+    <p>Here is some example paragraph text to fill out the space with some words</p>
+  </div>
+
+  <div class="confirmBtnContainer">
+    <a class="primaryBtn cancelBtn" ng-click="back()" href="javascript:void(0)">Cancel</a>
+    <a class="primaryBtn saveBtn createBtn" ng-click="savePair(pair)" href="javascript:void(0)">Create</a>
+  </div>
+</div>
