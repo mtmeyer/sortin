@@ -5,7 +5,7 @@ var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
 
-var TOPICS_COLLECTION = "topics";
+var NOTES_COLLECTION = "notes";
 
 var app = express();
 app.use(express.static(__dirname + "/public"));
@@ -36,39 +36,39 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 //--Endpoints--//
 //-------------//
 
-// Find all topics
-app.get("/topics", function(req, res) {
-  db.collection(TOPICS_COLLECTION).find({}).toArray(function(err, docs) {
+// Find all notes
+app.get("/notes", function(req, res) {
+  db.collection(NOTES_COLLECTION).find({}).toArray(function(err, docs) {
     if (err) {
-      handleError(res, err.message, "Failed to get topics.");
+      handleError(res, err.message, "Failed to get notes.");
     } else {
       res.status(200).json(docs);
     }
   });
 });
 
-//Create new topic
-app.post("/topics", function(req, res) {
-  var newTopic = req.body;
-  newTopic.createDate = new Date();
+//Create new note
+app.post("/notes", function(req, res) {
+  var newNote = req.body;
+  newNote.createDate = new Date();
 
-  if (!(req.body.topicName)) {
+  if (!(req.body.noteName)) {
     handleError(res, "Invalid user input", 400);
   }
 
-  db.collection(TOPICS_COLLECTION).insertOne(newTopic, function(err, doc) {
+  db.collection(NOTES_COLLECTION).insertOne(newNote, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to create new topic.");
+      handleError(res, err.message, "Failed to create new note.");
     } else {
       res.status(201).json(doc.ops[0]);
     }
   });
 
-//Get specific topic
-app.get("/api/topics/:id", function(req, res) {
-  db.collection(TOPICS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+//Get specific note
+app.get("/api/notes/:id", function(req, res) {
+  db.collection(NOTES_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to get topic");
+      handleError(res, err.message, "Failed to get note");
     } else {
       res.status(200).json(doc);
     }
